@@ -219,13 +219,144 @@ class AdvancedPFADSystem:
         except Exception as e:
             st.error(f"❌ Error setting parameters: {str(e)}")
     
-    def run_comprehensive_analysis(self):
+  def run_comprehensive_analysis(self):
         """Run complete analysis"""
         if not ADVANCED_MODULES_AVAILABLE:
-            st.error("⚠️ Advanced modules not available. Showing basic analysis...")
+            st.warning("⚠️ Advanced modules not available. Running basic analysis...")
             self.run_basic_analysis()
             return
         
+        # Initialize engines if not already done
+        if self.econometric_engine is None:
+            try:
+                self.econometric_engine = PFADEconometricEngine()
+                st.info("✅ Econometric engine initialized")
+            except Exception as e:
+                st.error(f"❌ Failed to initialize econometric engine: {str(e)}")
+                self.run_basic_analysis()
+                return
+        
+        if self.procurement_optimizer is None:
+            try:
+                self.procurement_optimizer = PFADProcurementOptimizer()
+                st.info("✅ Procurement optimizer initialized")
+            except Exception as e:
+                st.error(f"❌ Failed to initialize procurement optimizer: {str(e)}")
+                self.run_basic_analysis()
+                return
+def run_basic_analysis(self):
+        """Enhanced fallback basic analysis"""
+        try:
+            data = st.session_state.current_data
+            
+            st.info("🔄 Running basic statistical analysis...")
+            
+            # Calculate comprehensive basic metrics
+            current_price = data['PFAD_Rate'].iloc[-1]
+            prev_price = data['PFAD_Rate'].iloc[-2] if len(data) > 1 else current_price
+            price_change = ((current_price - prev_price) / prev_price) * 100
+            
+            # Volatility analysis
+            returns = data['PFAD_Rate'].pct_change().dropna()
+            volatility = returns.std() * np.sqrt(252) * 100
+            
+            # Trend analysis
+            ma_short = data['PFAD_Rate'].rolling(10).mean().iloc[-1]
+            ma_long = data['PFAD_Rate'].rolling(30).mean().iloc[-1]
+            trend = 'Rising' if ma_short > ma_long else 'Falling'
+            
+            # Price statistics
+            price_stats = {
+                'min': data['PFAD_Rate'].min(),
+                'max': data['PFAD_Rate'].max(),
+                'mean': data['PFAD_Rate'].mean(),
+                'std': data['PFAD_Rate'].std()
+            }
+            
+            # Create basic correlation analysis
+            numeric_cols = data.select_dtypes(include=[np.number]).columns.tolist()
+            if len(numeric_cols) > 1:
+                corr_matrix = data[numeric_cols].corr()
+                if 'PFAD_Rate' in corr_matrix.columns:
+                    pfad_correlations = corr_matrix['PFAD_Rate'].drop('PFAD_Rate').abs().sort_values(ascending=False)
+                    top_factors = pfad_correlations.head(3).to_dict()
+                else:
+                    top_factors = {}
+            else:
+                top_factors = {}
+            
+            # Basic procurement recommendations
+            monthly_consumption = 500  # Default
+            if st.session_state.business_params_set and hasattr(self.procurement_optimizer, 'business_params'):
+                monthly_consumption = self.procurement_optimizer.business_params.get('monthly_consumption', 500)
+            
+            # Simple EOQ calculation
+            annual_demand = monthly_consumption * 12
+            ordering_cost = 25000
+            holding_cost_rate = 0.02
+            holding_cost = current_price * holding_cost_rate * 12
+            
+            if holding_cost > 0:
+                basic_eoq = (2 * annual_demand * ordering_cost / holding_cost) ** 0.5
+            else:
+                basic_eoq = 100
+            
+            # Compile results
+            basic_results = {
+                'current_price': current_price,
+                'price_change': price_change,
+                'volatility': volatility,
+                'trend': trend,
+                'price_stats': price_stats,
+                'top_factors': top_factors,
+                'basic_eoq': basic_eoq,
+                'monthly_consumption': monthly_consumption,
+                'recommendations': {
+                    'timing': 'Buy' if trend == 'Rising' and price_change < 2 else 'Wait',
+                    'quantity': f"{basic_eoq:.0f} tons",
+                    'risk_level': 'High' if volatility > 30 else 'Medium' if volatility > 15 else 'Low'
+                }
+            }
+            
+            # Create mock procurement results for compatibility
+            mock_procurement = {
+                'executive_summary': {
+                    'current_inventory_days': 25,
+                    'recommended_order_quantity': basic_eoq,
+                    'best_supplier': 'Primary Supplier',
+                    'total_monthly_procurement_cost': current_price * monthly_consumption,
+                    'potential_monthly_savings': current_price * monthly_consumption * 0.03  # 3% savings estimate
+                },
+                'action_items': {
+                    'immediate': [
+                        f"QUANTITY: Order {basic_eoq:.0f} tons (basic EOQ)",
+                        f"TIMING: {basic_results['recommendations']['timing']} based on trend analysis",
+                        f"RISK: {basic_results['recommendations']['risk_level']} volatility - adjust strategy accordingly"
+                    ],
+                    'strategic': [
+                        "Monitor top correlated factors daily",
+                        "Review supplier contracts quarterly", 
+                        "Implement systematic reorder points",
+                        "Consider advanced econometric analysis upgrade"
+                    ]
+                }
+            }
+            
+            st.session_state.results = {
+                'basic': basic_results,
+                'procurement': mock_procurement
+            }
+            
+            st.session_state.analysis_complete = True
+            st.success("✅ Basic analysis completed successfully!")
+            
+        except Exception as e:
+            st.error(f"❌ Basic analysis error: {str(e)}")
+            # Minimal fallback
+            st.session_state.results = {
+                'basic': {'current_price': data['PFAD_Rate'].iloc[-1] if 'PFAD_Rate' in data.columns else 80000}
+            }
+            st.session_state.analysis_complete = True
         try:
             with st.spinner("🔬 Running comprehensive econometric analysis..."):
                 progress_bar = st.progress(0)
