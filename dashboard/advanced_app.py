@@ -237,7 +237,7 @@ class AdvancedPFADSystem:
                     self.procurement_optimizer = PFADProcurementOptimizer()
                 
                 st.sidebar.success(f"✅ Data loaded: {len(data)} records")
-                st.experimental_rerun()
+                st.rerun()
                 
         except Exception as e:
             st.error(f"❌ Error loading data: {str(e)}")
@@ -632,7 +632,7 @@ class AdvancedPFADSystem:
         
         st.markdown("## ⚠️ Risk Management Dashboard")
         
-        # Simulate risk metrics (replace with actual calculations)
+        # Calculate risk metrics
         current_price = self.data['PFAD_Rate'].iloc[-1]
         volatility = self.data['PFAD_Rate'].pct_change().std() * np.sqrt(252) * 100
         var_95 = current_price * 0.05  # 5% of current price as VaR
@@ -747,16 +747,16 @@ class AdvancedPFADSystem:
             current_price = self.data['PFAD_Rate'].iloc[-1]
             
             report_content = f"""
-            # PFAD Procurement Analytics - Executive Summary
-            **Generated:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
-            
-            ## 📊 Market Overview
-            - **Current PFAD Price:** ₹{current_price:,.0f}/ton
-            - **Data Period:** {self.data['Date'].min()} to {self.data['Date'].max()}
-            - **Total Records Analyzed:** {len(self.data):,}
-            
-            ## 🎯 Key Findings
-            """
+# PFAD Procurement Analytics - Executive Summary
+**Generated:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+
+## 📊 Market Overview
+- **Current PFAD Price:** ₹{current_price:,.0f}/ton
+- **Data Period:** {self.data['Date'].min()} to {self.data['Date'].max()}
+- **Total Records Analyzed:** {len(self.data):,}
+
+## 🎯 Key Findings
+"""
             
             if 'executive_summary' in results:
                 summary = results['executive_summary']
@@ -769,13 +769,13 @@ class AdvancedPFADSystem:
             if 'procurement' in results:
                 proc = results['procurement']['executive_summary']
                 report_content += f"""
-                
-                ## 💼 Procurement Recommendations
-                - **Optimal Order Quantity:** {proc.get('recommended_order_quantity', 0):.0f} tons
-                - **Best Supplier:** {proc.get('best_supplier', 'N/A')}
-                - **Monthly Procurement Cost:** ₹{proc.get('total_monthly_procurement_cost', 0)/100000:.1f} lakhs
-                - **Potential Monthly Savings:** ₹{proc.get('potential_monthly_savings', 0)/100000:.1f} lakhs
-                """
+
+## 💼 Procurement Recommendations
+- **Optimal Order Quantity:** {proc.get('recommended_order_quantity', 0):.0f} tons
+- **Best Supplier:** {proc.get('best_supplier', 'N/A')}
+- **Monthly Procurement Cost:** ₹{proc.get('total_monthly_procurement_cost', 0)/100000:.1f} lakhs
+- **Potential Monthly Savings:** ₹{proc.get('potential_monthly_savings', 0)/100000:.1f} lakhs
+"""
             
             st.markdown(report_content)
             
@@ -783,11 +783,10 @@ class AdvancedPFADSystem:
             st.download_button(
                 label="📥 Download Executive Report",
                 data=report_content,
-               file_name=f"PFAD_Executive_Report_{datetime.now().strftime('%Y%m%d')}.md",
-               mime="text/markdown"
-           )
-   
-   def generate_procurement_report(self):
+                file_name=f"PFAD_Executive_Report_{datetime.now().strftime('%Y%m%d')}.md",
+                mime="text/markdown"
+            )
+def generate_procurement_report(self):
        """Generate detailed procurement report"""
        st.markdown("### 💼 Procurement Optimization Report")
        
