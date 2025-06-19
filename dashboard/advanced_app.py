@@ -782,7 +782,6 @@ class AdvancedPFADSystem:
             # Download button
             st.download_button(
                 label="📥 Download Executive Report",
-                data=report_
                 data=report_content,
                file_name=f"PFAD_Executive_Report_{datetime.now().strftime('%Y%m%d')}.md",
                mime="text/markdown"
