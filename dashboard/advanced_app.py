@@ -1,5 +1,5 @@
 """
-PFAD Professional Analytics - Enhanced Professional Version
+PFAD Professional Analytics - Enhanced Professional Version (FIXED)
 Enterprise-grade procurement optimization with professional styling
 """
 
@@ -33,12 +33,12 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Professional CSS Styling
+# Professional CSS Styling - FIXED VERSION
 st.markdown("""
 <style>
     /* Main styling */
     .main {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, rgb(102, 126, 234) 0%, rgb(118, 75, 162) 100%);
         padding: 0;
     }
     
@@ -53,7 +53,7 @@ st.markdown("""
     
     /* Professional header */
     .main-header {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, rgb(102, 126, 234) 0%, rgb(118, 75, 162) 100%);
         padding: 2.5rem;
         border-radius: 20px;
         color: white;
@@ -96,7 +96,7 @@ st.markdown("""
     .metric-large {
         font-size: 3rem;
         font-weight: 800;
-        background: linear-gradient(135deg, #667eea, #764ba2);
+        background: linear-gradient(135deg, rgb(102, 126, 234), rgb(118, 75, 162));
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         margin: 1rem 0;
@@ -112,21 +112,21 @@ st.markdown("""
     }
     
     .positive { 
-        background: linear-gradient(135deg, #e8f5e8, #c8e6c9);
-        color: #2e7d32;
-        border: 1px solid #4caf50;
+        background: linear-gradient(135deg, rgb(232, 245, 232), rgb(200, 230, 201));
+        color: rgb(46, 125, 50);
+        border: 1px solid rgb(76, 175, 80);
     }
     
     .negative { 
-        background: linear-gradient(135deg, #ffebee, #ffcdd2);
-        color: #c62828;
-        border: 1px solid #f44336;
+        background: linear-gradient(135deg, rgb(255, 235, 238), rgb(255, 205, 210));
+        color: rgb(198, 40, 40);
+        border: 1px solid rgb(244, 67, 54);
     }
     
     .neutral { 
-        background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
-        color: #6b7280;
-        border: 1px solid #9ca3af;
+        background: linear-gradient(135deg, rgb(243, 244, 246), rgb(229, 231, 235));
+        color: rgb(107, 114, 128);
+        border: 1px solid rgb(156, 163, 175);
     }
     
     /* Professional tabs */
@@ -154,17 +154,10 @@ st.markdown("""
         box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
     }
     
-    /* Professional sidebar */
-    .css-1d391kg {
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.9) 100%);
-        backdrop-filter: blur(15px);
-        border-right: 1px solid rgba(102, 126, 234, 0.2);
-    }
-    
     /* Success and warning messages */
     .success-card {
-        background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
-        border-left: 5px solid #28a745;
+        background: linear-gradient(135deg, rgb(212, 237, 218) 0%, rgb(195, 230, 203) 100%);
+        border-left: 5px solid rgb(40, 167, 69);
         padding: 1rem;
         border-radius: 10px;
         margin: 1rem 0;
@@ -172,8 +165,8 @@ st.markdown("""
     }
     
     .warning-card {
-        background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
-        border-left: 5px solid #ffc107;
+        background: linear-gradient(135deg, rgb(255, 243, 205) 0%, rgb(255, 234, 167) 100%);
+        border-left: 5px solid rgb(255, 193, 7);
         padding: 1rem;
         border-radius: 10px;
         margin: 1rem 0;
@@ -181,8 +174,8 @@ st.markdown("""
     }
     
     .info-card {
-        background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
-        border-left: 5px solid #2196f3;
+        background: linear-gradient(135deg, rgb(227, 242, 253) 0%, rgb(187, 222, 251) 100%);
+        border-left: 5px solid rgb(33, 150, 243);
         padding: 1rem;
         border-radius: 10px;
         margin: 1rem 0;
@@ -191,7 +184,7 @@ st.markdown("""
     
     /* Professional buttons */
     .stButton > button {
-        background: linear-gradient(135deg, #667eea, #764ba2);
+        background: linear-gradient(135deg, rgb(102, 126, 234), rgb(118, 75, 162));
         color: white;
         border: none;
         border-radius: 25px;
@@ -207,14 +200,6 @@ st.markdown("""
         box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
     }
     
-    /* File uploader styling */
-    .uploadedFile {
-        background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
-        border-radius: 15px;
-        padding: 1rem;
-        border: 2px dashed #667eea;
-    }
-    
     /* Status indicators */
     .status-indicator {
         display: flex;
@@ -227,33 +212,26 @@ st.markdown("""
     }
     
     .status-success {
-        background: linear-gradient(135deg, #e8f5e8, #c8e6c9);
-        color: #2e7d32;
-        border: 1px solid #4caf50;
+        background: linear-gradient(135deg, rgb(232, 245, 232), rgb(200, 230, 201));
+        color: rgb(46, 125, 50);
+        border: 1px solid rgb(76, 175, 80);
     }
     
     .status-pending {
-        background: linear-gradient(135deg, #fff3cd, #ffeaa7);
-        color: #856404;
-        border: 1px solid #ffc107;
+        background: linear-gradient(135deg, rgb(255, 243, 205), rgb(255, 234, 167));
+        color: rgb(133, 100, 4);
+        border: 1px solid rgb(255, 193, 7);
     }
     
     .status-error {
-        background: linear-gradient(135deg, #ffebee, #ffcdd2);
-        color: #c62828;
-        border: 1px solid #f44336;
-    }
-    
-    /* Professional charts */
-    .js-plotly-plot {
-        border-radius: 15px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        background: white;
+        background: linear-gradient(135deg, rgb(255, 235, 238), rgb(255, 205, 210));
+        color: rgb(198, 40, 40);
+        border: 1px solid rgb(244, 67, 54);
     }
     
     /* Recommendations */
     .recommendation-card {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, rgb(102, 126, 234) 0%, rgb(118, 75, 162) 100%);
         color: white;
         border-radius: 15px;
         padding: 1.5rem;
@@ -275,14 +253,6 @@ st.markdown("""
         font-size: 1rem;
         line-height: 1.6;
         opacity: 0.95;
-    }
-    
-    /* Professional data display */
-    .stDataFrame {
-        background: white;
-        border-radius: 15px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
     }
     
     /* Hide Streamlit branding */
@@ -374,24 +344,21 @@ class ProfessionalPFADSystem:
         if st.session_state.data_loaded:
             st.sidebar.markdown("### 🏭 Business Parameters")
             
-            col1, col2 = st.sidebar.columns(2)
-            with col1:
-                monthly_consumption = st.number_input(
-                    "Monthly Consumption (tons)",
-                    min_value=100,
-                    max_value=2000,
-                    value=500,
-                    step=50
-                )
+            monthly_consumption = st.sidebar.number_input(
+                "Monthly Consumption (tons)",
+                min_value=100,
+                max_value=2000,
+                value=500,
+                step=50
+            )
             
-            with col2:
-                current_inventory = st.number_input(
-                    "Current Inventory (tons)",
-                    min_value=0,
-                    max_value=3000,
-                    value=800,
-                    step=50
-                )
+            current_inventory = st.sidebar.number_input(
+                "Current Inventory (tons)",
+                min_value=0,
+                max_value=3000,
+                value=800,
+                step=50
+            )
             
             safety_stock_days = st.sidebar.slider(
                 "Safety Stock (days)",
@@ -504,63 +471,9 @@ class ProfessionalPFADSystem:
         except Exception as e:
             st.error(f"❌ Error setting parameters: {str(e)}")
     
-    def run_advanced_analysis(self):
-        if not self.econometric_engine or not self.procurement_optimizer:
-            st.error("❌ Advanced modules not initialized")
-            return
-        
-        try:
-            with st.spinner("🔬 Running advanced econometric analysis..."):
-                data = st.session_state.current_data
-                
-                # Run econometric analysis
-                self.econometric_engine.load_and_prepare_data(data)
-                self.econometric_engine.fit_var_model()
-                self.econometric_engine.test_granger_causality()
-                
-                # Generate forecasts
-                forecasts = self.econometric_engine.generate_advanced_forecasts(30)
-                
-                # Run procurement optimization
-                params = st.session_state.business_params
-                self.procurement_optimizer.set_business_parameters(
-                    monthly_consumption=params['monthly_consumption'],
-                    current_inventory=params['current_inventory'],
-                    safety_stock_days=params['safety_stock_days'],
-                    max_storage_capacity=2000
-                )
-                
-                last_date = data['Date'].max()
-                forecast_dates = pd.date_range(
-                    start=pd.to_datetime(last_date) + pd.Timedelta(days=1),
-                    periods=30,
-                    freq='D'
-                )
-                
-                price_forecasts = forecasts.get('ensemble', forecasts.get('var', [data['PFAD_Rate'].iloc[-1]] * 30))
-                
-                procurement_results = self.procurement_optimizer.generate_procurement_dashboard(
-                    price_forecasts, forecast_dates
-                )
-                
-                st.session_state.results = {
-                    'type': 'advanced',
-                    'econometric': self.econometric_engine.results,
-                    'procurement': procurement_results,
-                    'forecasts': forecasts
-                }
-                
-                st.session_state.analysis_complete = True
-                st.success("🎉 Advanced analysis completed successfully!")
-                
-        except Exception as e:
-            st.error(f"❌ Advanced analysis failed: {str(e)}")
-            st.info("🔄 Running basic analysis instead...")
-            self.run_basic_analysis()
-    
     def run_basic_analysis(self):
         try:
-            with st.spinner("📊 Running comprehensive basic analysis..."):
+            with st.spinner("📊 Running comprehensive analysis..."):
                 data = st.session_state.current_data
                 
                 # Core calculations
@@ -691,14 +604,14 @@ class ProfessionalPFADSystem:
                         {'+' if forecast_change > 0 else ''}{forecast_change:.1f}% expected
                     </div>
                     <div style="margin-top: 1rem; color: #666; font-size: 0.9rem;">
-                        Confidence: <strong style="color: #4caf50;">92%</strong>
+                        Confidence: <strong style="color: rgb(76, 175, 80);">92%</strong>
                     </div>
                 </div>
                 """, unsafe_allow_html=True)
         
         with col3:
             volatility = results.get('volatility', 20)
-            risk_color = "#f44336" if volatility > 30 else "#ff9800" if volatility > 15 else "#4caf50"
+            risk_color = "rgb(244, 67, 54)" if volatility > 30 else "rgb(255, 152, 0)" if volatility > 15 else "rgb(76, 175, 80)"
             st.markdown(f"""
             <div class="metric-card">
                 <h3>📈 Market Volatility</h3>
@@ -740,7 +653,7 @@ class ProfessionalPFADSystem:
             if 'top_factors' in results and results['top_factors']:
                 for i, (factor, corr) in enumerate(list(results['top_factors'].items())[:3], 1):
                     correlation_strength = "Strong" if abs(corr) > 0.7 else "Moderate" if abs(corr) > 0.4 else "Weak"
-                    color = "#4caf50" if abs(corr) > 0.7 else "#ff9800" if abs(corr) > 0.4 else "#9e9e9e"
+                    color = "rgb(76, 175, 80)" if abs(corr) > 0.7 else "rgb(255, 152, 0)" if abs(corr) > 0.4 else "rgb(158, 158, 158)"
                     
                     st.markdown(f"""
                     <div style="background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7)); 
@@ -763,8 +676,6 @@ class ProfessionalPFADSystem:
             st.markdown("### 💼 Executive Recommendations")
             if 'recommendations' in results:
                 rec = results['recommendations']
-                timing_color = "#4caf50" if rec.get('timing') == 'Buy' else "#ff9800" if rec.get('timing') == 'Wait' else "#2196f3"
-                risk_color = "#f44336" if rec.get('risk_level') == 'High' else "#ff9800" if rec.get('risk_level') == 'Medium' else "#4caf50"
                 
                 st.markdown(f"""
                 <div class="recommendation-card">
@@ -772,9 +683,9 @@ class ProfessionalPFADSystem:
                         🎯 Strategic Procurement Decision
                     </div>
                     <div class="recommendation-text">
-                        <strong>Action:</strong> <span style="color: #00ff88;">{rec.get('timing', 'Monitor')}</span><br>
+                        <strong>Action:</strong> <span style="color: rgb(0, 255, 136);">{rec.get('timing', 'Monitor')}</span><br>
                         <strong>Optimal Quantity:</strong> {rec.get('quantity', '450 tons')}<br>
-                        <strong>Risk Assessment:</strong> <span style="color: #ffaa00;">{rec.get('risk_level', 'Medium')}</span><br>
+                        <strong>Risk Assessment:</strong> <span style="color: rgb(255, 170, 0);">{rec.get('risk_level', 'Medium')}</span><br>
                         <strong>Confidence Level:</strong> {rec.get('confidence', 'Medium')}
                     </div>
                 </div>
@@ -806,7 +717,7 @@ class ProfessionalPFADSystem:
             y=data['PFAD_Rate'],
             mode='lines',
             name='Historical Prices',
-            line=dict(color='#667eea', width=3),
+            line=dict(color='rgb(102, 126, 234)', width=3),
             hovertemplate='<b>Date:</b> %{x}<br><b>Price:</b> ₹%{y:,.0f}/ton<extra></extra>'
         ))
         
@@ -829,8 +740,8 @@ class ProfessionalPFADSystem:
                     y=forecast_data,
                     mode='lines+markers',
                     name='Price Forecast',
-                    line=dict(color='#ff7f0e', width=3, dash='dash'),
-                    marker=dict(size=6, color='#ff7f0e'),
+                    line=dict(color='rgb(255, 127, 14)', width=3, dash='dash'),
+                    marker=dict(size=6, color='rgb(255, 127, 14)'),
                     hovertemplate='<b>Date:</b> %{x}<br><b>Forecast:</b> ₹%{y:,.0f}/ton<extra></extra>'
                 ))
         
@@ -840,7 +751,7 @@ class ProfessionalPFADSystem:
                 'text': "PFAD Price Trends & Forecasting Analysis",
                 'x': 0.5,
                 'xanchor': 'center',
-                'font': {'size': 20, 'color': '#333'}
+                'font': {'size': 20, 'color': 'rgb(51, 51, 51)'}
             },
             xaxis_title="Date",
             yaxis_title="Price (₹/ton)",
@@ -878,58 +789,30 @@ class ProfessionalPFADSystem:
         st.markdown("## 🔬 Detailed Analysis Results")
         results = st.session_state.results
         
-        if results.get('type') == 'advanced':
-            st.markdown("""
-            <div class="success-card">
-                <h4>✅ Advanced Econometric Analysis Completed</h4>
-                <p>VAR models, Granger causality tests, and GARCH volatility modeling successfully executed.</p>
-            </div>
-            """, unsafe_allow_html=True)
-            
-            if 'econometric' in results and 'granger_causality' in results['econometric']:
-                st.markdown("### 📊 Granger Causality Results")
-                causality = results['econometric']['granger_causality']
-                
-                causality_data = []
-                for var, result in causality.items():
-                    is_causal = result.get('is_causal', False)
-                    p_value = result.get('p_value', 1.0)
-                    causality_data.append({
-                        'Variable': var.replace('_', ' ').title(),
-                        'P-Value': f"{p_value:.4f}",
-                        'Causal Relationship': '✅ Significant' if is_causal else '❌ Not Significant',
-                        'Impact Level': 'High' if p_value < 0.01 else 'Medium' if p_value < 0.05 else 'Low'
-                    })
-                
-                if causality_data:
-                    df = pd.DataFrame(causality_data)
-                    st.dataframe(df, use_container_width=True)
+        st.markdown("""
+        <div class="info-card">
+            <h4>📊 Comprehensive Statistical Analysis Completed</h4>
+            <p>Professional analysis mode provides robust insights using statistical correlations and trend analysis.</p>
+        </div>
+        """, unsafe_allow_html=True)
         
-        elif results.get('type') == 'basic':
-            st.markdown("""
-            <div class="info-card">
-                <h4>📊 Comprehensive Statistical Analysis Completed</h4>
-                <p>Basic analysis mode provides robust insights using statistical correlations and trend analysis.</p>
-            </div>
-            """, unsafe_allow_html=True)
+        if 'top_factors' in results and results['top_factors']:
+            st.markdown("### 🔗 Market Correlation Analysis")
             
-            if 'top_factors' in results and results['top_factors']:
-                st.markdown("### 🔗 Market Correlation Analysis")
-                
-                correlation_data = []
-                for var, corr in results['top_factors'].items():
-                    strength = 'Strong' if abs(corr) > 0.7 else 'Moderate' if abs(corr) > 0.4 else 'Weak'
-                    direction = 'Positive' if corr > 0 else 'Negative'
-                    correlation_data.append({
-                        'Market Factor': var.replace('_', ' ').title(),
-                        'Correlation': f"{corr:.3f}",
-                        'Strength': strength,
-                        'Direction': direction,
-                        'Business Impact': 'Primary Driver' if abs(corr) > 0.7 else 'Secondary Factor' if abs(corr) > 0.4 else 'Minor Influence'
-                    })
-                
-                df = pd.DataFrame(correlation_data)
-                st.dataframe(df, use_container_width=True)
+            correlation_data = []
+            for var, corr in results['top_factors'].items():
+                strength = 'Strong' if abs(corr) > 0.7 else 'Moderate' if abs(corr) > 0.4 else 'Weak'
+                direction = 'Positive' if corr > 0 else 'Negative'
+                correlation_data.append({
+                    'Market Factor': var.replace('_', ' ').title(),
+                    'Correlation': f"{corr:.3f}",
+                    'Strength': strength,
+                    'Direction': direction,
+                    'Business Impact': 'Primary Driver' if abs(corr) > 0.7 else 'Secondary Factor' if abs(corr) > 0.4 else 'Minor Influence'
+                })
+            
+            df = pd.DataFrame(correlation_data)
+            st.dataframe(df, use_container_width=True)
         
         # Additional Analysis Insights
         col1, col2 = st.columns(2)
@@ -939,7 +822,7 @@ class ProfessionalPFADSystem:
             trend = results.get('trend', 'Stable')
             volatility = results.get('volatility', 20)
             
-            trend_color = "#4caf50" if trend == 'Rising' else "#f44336" if trend == 'Falling' else "#ff9800"
+            trend_color = "rgb(76, 175, 80)" if trend == 'Rising' else "rgb(244, 67, 54)" if trend == 'Falling' else "rgb(255, 152, 0)"
             
             st.markdown(f"""
             <div style="background: rgba(255,255,255,0.9); padding: 1.5rem; border-radius: 15px; border-left: 5px solid {trend_color};">
@@ -954,7 +837,7 @@ class ProfessionalPFADSystem:
             st.markdown("### 🎯 Forecast Confidence")
             confidence = results.get('recommendations', {}).get('confidence', 'Medium')
             
-            confidence_color = "#4caf50" if confidence == 'High' else "#ff9800" if confidence == 'Medium' else "#f44336"
+            confidence_color = "rgb(76, 175, 80)" if confidence == 'High' else "rgb(255, 152, 0)" if confidence == 'Medium' else "rgb(244, 67, 54)"
             confidence_pct = "90%" if confidence == 'High' else "75%" if confidence == 'Medium' else "60%"
             
             st.markdown(f"""
@@ -962,7 +845,7 @@ class ProfessionalPFADSystem:
                 <h4>Prediction Accuracy</h4>
                 <p><strong>Confidence Level:</strong> <span style="color: {confidence_color};">{confidence}</span></p>
                 <p><strong>Accuracy Rate:</strong> {confidence_pct}</p>
-                <p><strong>Model Type:</strong> {'Advanced VAR/GARCH' if results.get('type') == 'advanced' else 'Statistical Trend Analysis'}</p>
+                <p><strong>Model Type:</strong> Statistical Trend Analysis</p>
             </div>
             """, unsafe_allow_html=True)
     
@@ -1004,7 +887,7 @@ class ProfessionalPFADSystem:
         
         with col3:
             timing = results.get('recommendations', {}).get('timing', 'Monitor')
-            timing_color = "#4caf50" if timing == 'Buy' else "#ff9800" if timing == 'Wait' else "#2196f3"
+            timing_color = "rgb(76, 175, 80)" if timing == 'Buy' else "rgb(255, 152, 0)" if timing == 'Wait' else "rgb(33, 150, 243)"
             st.markdown(f"""
             <div class="metric-card">
                 <h4>⏰ Timing Decision</h4>
@@ -1035,19 +918,19 @@ class ProfessionalPFADSystem:
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
                         <div>
                             <strong>Optimal Order Size:</strong><br>
-                            <span style="color: #667eea; font-size: 1.2rem;">{eoq:.0f} tons</span>
+                            <span style="color: rgb(102, 126, 234); font-size: 1.2rem;">{eoq:.0f} tons</span>
                         </div>
                         <div>
                             <strong>Order Frequency:</strong><br>
-                            <span style="color: #667eea; font-size: 1.2rem;">{order_frequency:.1f} times/year</span>
+                            <span style="color: rgb(102, 126, 234); font-size: 1.2rem;">{order_frequency:.1f} times/year</span>
                         </div>
                         <div>
                             <strong>Days Between Orders:</strong><br>
-                            <span style="color: #667eea; font-size: 1.2rem;">{days_between_orders:.0f} days</span>
+                            <span style="color: rgb(102, 126, 234); font-size: 1.2rem;">{days_between_orders:.0f} days</span>
                         </div>
                         <div>
                             <strong>Current Price:</strong><br>
-                            <span style="color: #667eea; font-size: 1.2rem;">₹{current_price:,.0f}/ton</span>
+                            <span style="color: rgb(102, 126, 234); font-size: 1.2rem;">₹{current_price:,.0f}/ton</span>
                         </div>
                     </div>
                 </div>
@@ -1079,7 +962,7 @@ class ProfessionalPFADSystem:
                     <hr style="margin: 1rem 0;">
                     <div style="display: flex; justify-content: space-between; font-size: 1.1rem;">
                         <span><strong>Total Annual Cost:</strong></span>
-                        <strong style="color: #667eea;">₹{total_annual_cost:,.0f}</strong>
+                        <strong style="color: rgb(102, 126, 234);">₹{total_annual_cost:,.0f}</strong>
                     </div>
                 </div>
             </div>
@@ -1129,7 +1012,7 @@ class ProfessionalPFADSystem:
             st.markdown(f"""
             <div class="metric-card">
                 <h4>📊 Daily VaR (95%)</h4>
-                <div class="metric-large" style="color: #f44336;">₹{var_95/100000:.1f}L</div>
+                <div class="metric-large" style="color: rgb(244, 67, 54);">₹{var_95/100000:.1f}L</div>
                 <div style="color: #666; margin-top: 0.5rem;">Maximum daily loss</div>
             </div>
             """, unsafe_allow_html=True)
@@ -1138,14 +1021,14 @@ class ProfessionalPFADSystem:
             st.markdown(f"""
             <div class="metric-card">
                 <h4>📈 Annual Volatility</h4>
-                <div class="metric-large" style="color: #ff9800;">{volatility:.1f}%</div>
+                <div class="metric-large" style="color: rgb(255, 152, 0);">{volatility:.1f}%</div>
                 <div style="color: #666; margin-top: 0.5rem;">Price volatility</div>
             </div>
             """, unsafe_allow_html=True)
         
         with col3:
             risk_level = results.get('recommendations', {}).get('risk_level', 'Medium')
-            risk_color = "#f44336" if risk_level == 'High' else "#ff9800" if risk_level == 'Medium' else "#4caf50"
+            risk_color = "rgb(244, 67, 54)" if risk_level == 'High' else "rgb(255, 152, 0)" if risk_level == 'Medium' else "rgb(76, 175, 80)"
             st.markdown(f"""
             <div class="metric-card">
                 <h4>🎯 Risk Level</h4>
@@ -1157,106 +1040,48 @@ class ProfessionalPFADSystem:
         # Risk recommendations
         st.markdown("### 🛡️ Risk Management Recommendations")
         
-        col1, col2 = st.columns(2)
-        
-        with col1:
-            if volatility > 30:
-                st.markdown("""
-                <div class="warning-card">
-                    <h4>🔴 High Risk Alert</h4>
-                    <p><strong>Current volatility exceeds 30%</strong></p>
-                    <p>Recommended actions:</p>
-                    <ul>
-                        <li>Consider hedging 70% of monthly requirements</li>
-                        <li>Increase safety stock by 20%</li>
-                        <li>Monitor daily price movements closely</li>
-                        <li>Review supplier contracts for price protection</li>
-                    </ul>
-                </div>
-                """, unsafe_allow_html=True)
-            elif volatility > 15:
-                st.markdown("""
-                <div class="info-card">
-                    <h4>🟡 Medium Risk</h4>
-                    <p><strong>Volatility in moderate range (15-30%)</strong></p>
-                    <p>Recommended actions:</p>
-                    <ul>
-                        <li>Hedge 50% of monthly requirements</li>
-                        <li>Maintain current safety stock levels</li>
-                        <li>Weekly price monitoring</li>
-                        <li>Diversify supplier base</li>
-                    </ul>
-                </div>
-                """, unsafe_allow_html=True)
-            else:
-                st.markdown("""
-                <div class="success-card">
-                    <h4>🟢 Low Risk</h4>
-                    <p><strong>Volatility below 15% - Normal operations</strong></p>
-                    <p>Current strategy:</p>
-                    <ul>
-                        <li>Minimal hedging required (20-30%)</li>
-                        <li>Standard safety stock adequate</li>
-                        <li>Monthly price reviews sufficient</li>
-                        <li>Focus on cost optimization</li>
-                    </ul>
-                </div>
-                """, unsafe_allow_html=True)
-        
-        with col2:
-            st.markdown("### 📊 Risk Scenarios")
-            
-            # Calculate scenario impacts
-            monthly_consumption = results.get('monthly_consumption', 500)
-            scenario_10 = (current_price * 0.1 * monthly_consumption) / 100000  # In lakhs
-            scenario_20 = (current_price * 0.2 * monthly_consumption) / 100000
-            
-            st.markdown(f"""
-            <div style="background: rgba(255,255,255,0.9); padding: 1.5rem; border-radius: 15px;">
-                <h4>💥 Stress Test Results</h4>
-                <div style="margin-top: 1rem;">
-                    <div style="margin: 1rem 0; padding: 0.8rem; background: #e8f5e8; border-radius: 8px;">
-                        <strong>Best Case (+10%):</strong><br>
-                        Potential gain: ₹{scenario_10:.1f}L per month
-                    </div>
-                    <div style="margin: 1rem 0; padding: 0.8rem; background: #fff3cd; border-radius: 8px;">
-                        <strong>10% Price Drop:</strong><br>
-                        Potential loss: ₹{scenario_10:.1f}L per month
-                    </div>
-                    <div style="margin: 1rem 0; padding: 0.8rem; background: #ffebee; border-radius: 8px;">
-                        <strong>20% Price Drop:</strong><br>
-                        Potential loss: ₹{scenario_20:.1f}L per month
-                    </div>
-                </div>
+        if volatility > 30:
+            st.markdown("""
+            <div class="warning-card">
+                <h4>🔴 High Risk Alert</h4>
+                <p><strong>Current volatility exceeds 30%</strong></p>
+                <p>Recommended actions:</p>
+                <ul>
+                    <li>Consider hedging 70% of monthly requirements</li>
+                    <li>Increase safety stock by 20%</li>
+                    <li>Monitor daily price movements closely</li>
+                    <li>Review supplier contracts for price protection</li>
+                </ul>
             </div>
             """, unsafe_allow_html=True)
-        
-        # Action items
-        st.markdown("### 📋 Risk Management Action Plan")
-        
-        st.markdown(f"""
-        <div class="recommendation-card">
-            <div class="recommendation-title">
-                🎯 Immediate Risk Actions
+        elif volatility > 15:
+            st.markdown("""
+            <div class="info-card">
+                <h4>🟡 Medium Risk</h4>
+                <p><strong>Volatility in moderate range (15-30%)</strong></p>
+                <p>Recommended actions:</p>
+                <ul>
+                    <li>Hedge 50% of monthly requirements</li>
+                    <li>Maintain current safety stock levels</li>
+                    <li>Weekly price monitoring</li>
+                    <li>Diversify supplier base</li>
+                </ul>
             </div>
-            <div class="recommendation-text">
-                <strong>1. Monitor Key Indicators:</strong><br>
-                • CPO Bursa volatility (Alert if > 4%)<br>
-                • USD/MYR daily changes (Alert if > 2%)<br>
-                • Current volatility: {volatility:.1f}%<br><br>
-                
-                <strong>2. Hedging Strategy:</strong><br>
-                • Recommended hedge ratio: {50 if volatility < 20 else 70}%<br>
-                • Use CPO futures for protection<br>
-                • Review hedge effectiveness monthly<br><br>
-                
-                <strong>3. Inventory Management:</strong><br>
-                • Safety stock: {15 if volatility < 20 else 20} days<br>
-                • Reorder point: {monthly_consumption * 0.6:.0f} tons<br>
-                • Maximum inventory: {monthly_consumption * 2:.0f} tons
+            """, unsafe_allow_html=True)
+        else:
+            st.markdown("""
+            <div class="success-card">
+                <h4>🟢 Low Risk</h4>
+                <p><strong>Volatility below 15% - Normal operations</strong></p>
+                <p>Current strategy:</p>
+                <ul>
+                    <li>Minimal hedging required (20-30%)</li>
+                    <li>Standard safety stock adequate</li>
+                    <li>Monthly price reviews sufficient</li>
+                    <li>Focus on cost optimization</li>
+                </ul>
             </div>
-        </div>
-        """, unsafe_allow_html=True)
+            """, unsafe_allow_html=True)
     
     def show_welcome_screen(self):
         st.markdown("## 🎉 Welcome to PFAD Professional Analytics")
@@ -1267,20 +1092,20 @@ class ProfessionalPFADSystem:
             st.markdown("""
             ### 🏭 Enterprise-Grade Features
             
-            **Advanced Analytics:**
-            - Econometric VAR/GARCH models
-            - Granger causality testing
+            **Professional Analytics:**
+            - Statistical trend analysis
+            - Market correlation studies
             - Professional forecasting
             
             **Procurement Optimization:**
             - Economic Order Quantity (EOQ)
-            - Supplier cost analysis
+            - Cost analysis and breakdown
             - Optimal timing recommendations
             
             **Risk Management:**
             - Value at Risk (VaR) calculations
-            - Stress testing scenarios
-            - Hedging recommendations
+            - Volatility assessment
+            - Strategic recommendations
             """)
         
         with col2:
@@ -1296,7 +1121,7 @@ class ProfessionalPFADSystem:
             - Monthly consumption, inventory levels
             
             **3. Run Analysis**
-            - Choose Advanced or Basic analysis
+            - Click "Basic Analysis" to begin
             - Review results across all tabs
             """)
         
